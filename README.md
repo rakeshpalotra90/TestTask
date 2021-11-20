@@ -35,7 +35,7 @@ You can change the simulator name to any device available in XCode.
 
 #### For Android
 
-There is not direct command that opens the simulator directly. There is a PR that fixes this in react native cli but it hasn't been pushed yet (https://github.com/react-native-community/cli/pull/676). We'll upgrade to that once an update is released for the RN CLI. For now, we need to either open up Android studio and start an emulator, or use genymotion and start a genymotion emulator. Run the following command after the emulator is up and running.
+Open the Android folder in Android Studio. Set up an Android virtual device).
 
 ```
 npx react-native run-android
