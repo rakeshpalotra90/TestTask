@@ -5,14 +5,13 @@ import {
   TouchableWithoutFeedback,
   Animated,
 } from 'react-native';
-import {ScreenProps} from '../types/Application.d';
 import Theme from '../Theme';
 import FocusList from '../components/Lists/FocusList';
 
 /**
  * FousControlScreen - Screen is used to display doNotDisturb, sleep mode, personal and work settings.
  **/
-export default class FousControlScreen extends React.Component<ScreenProps> {
+export default class FousControlScreen extends React.Component<any> {
   animatedScaleValue: Animated.Value | Animated.ValueXY;
   animatedTranslateYValue: Animated.Value | Animated.ValueXY;
   animatedTranslateXValue: Animated.Value | Animated.ValueXY;
@@ -22,19 +21,19 @@ export default class FousControlScreen extends React.Component<ScreenProps> {
   constructor(props: any) {
     super(props);
     this.animatedScaleValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.scaleValue,
+      Theme.Animations.screens.focusControl.initial.scaleValue,
     );
     this.animatedTranslateYValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.translateYValue,
+      Theme.Animations.screens.focusControl.initial.translateYValue,
     );
     this.animatedTranslateXValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.translateXValue,
+      Theme.Animations.screens.focusControl.initial.translateXValue,
     );
     this.animatedBackgroundOpacityValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.backgroundOpacityValue,
+      Theme.Animations.screens.focusControl.initial.backgroundOpacityValue,
     );
     this.animatedContainerOpacityValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.containerOpacityValue,
+      Theme.Animations.screens.focusControl.initial.containerOpacityValue,
     );
   }
 
@@ -44,39 +43,39 @@ export default class FousControlScreen extends React.Component<ScreenProps> {
     Animated.parallel([
       Animated.timing(this.animatedContainerOpacityValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.container
+          Theme.Animations.screens.focusControl.onUnmount.opacity.container
             .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.container
+          Theme.Animations.screens.focusControl.onUnmount.opacity.container
             .duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedTranslateYValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onUnmount.translate.Y.toValue,
+          Theme.Animations.screens.focusControl.onUnmount.translate.Y.toValue,
         duration:
-          Theme.Animations.screens.musicControl.onUnmount.translate.Y.duration,
+          Theme.Animations.screens.focusControl.onUnmount.translate.Y.duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedTranslateXValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onUnmount.translate.X.toValue,
+          Theme.Animations.screens.focusControl.onUnmount.translate.X.toValue,
         duration:
-          Theme.Animations.screens.musicControl.onUnmount.translate.X.duration,
+          Theme.Animations.screens.focusControl.onUnmount.translate.X.duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedScaleValue, {
-        toValue: Theme.Animations.screens.musicControl.onUnmount.scale.toValue,
+        toValue: Theme.Animations.screens.focusControl.onUnmount.scale.toValue,
         duration:
-          Theme.Animations.screens.musicControl.onUnmount.scale.duration,
+          Theme.Animations.screens.focusControl.onUnmount.scale.duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedBackgroundOpacityValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.background
+          Theme.Animations.screens.focusControl.onUnmount.opacity.background
             .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.background
+          Theme.Animations.screens.focusControl.onUnmount.opacity.background
             .duration,
         useNativeDriver: true,
       }),
@@ -89,38 +88,38 @@ export default class FousControlScreen extends React.Component<ScreenProps> {
     Animated.parallel([
       Animated.timing(this.animatedContainerOpacityValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onMount.opacity.container
+          Theme.Animations.screens.focusControl.onMount.opacity.container
             .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onMount.opacity.container
+          Theme.Animations.screens.focusControl.onMount.opacity.container
             .duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedTranslateYValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onMount.translate.Y.toValue,
+          Theme.Animations.screens.focusControl.onMount.translate.Y.toValue,
         duration:
-          Theme.Animations.screens.musicControl.onMount.translate.Y.duration,
+          Theme.Animations.screens.focusControl.onMount.translate.Y.duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedTranslateXValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onMount.translate.X.toValue,
+          Theme.Animations.screens.focusControl.onMount.translate.X.toValue,
         duration:
-          Theme.Animations.screens.musicControl.onMount.translate.X.duration,
+          Theme.Animations.screens.focusControl.onMount.translate.X.duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedScaleValue, {
-        toValue: Theme.Animations.screens.musicControl.onMount.scale.toValue,
-        duration: Theme.Animations.screens.musicControl.onMount.scale.duration,
+        toValue: Theme.Animations.screens.focusControl.onMount.scale.toValue,
+        duration: Theme.Animations.screens.focusControl.onMount.scale.duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedBackgroundOpacityValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onMount.opacity.background
+          Theme.Animations.screens.focusControl.onMount.opacity.background
             .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onMount.opacity.background
+          Theme.Animations.screens.focusControl.onMount.opacity.background
             .duration,
         useNativeDriver: true,
       }),

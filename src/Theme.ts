@@ -324,6 +324,128 @@ class Theme {
           },
         },
       },
+      brightNessControl: {
+        initial: {
+          scaleValue: 0.38,
+          translateYValue: 62,
+          translateXValue: 60,
+          backgroundOpacityValue: 0,
+          containerOpacityValue: 0,
+        },
+        onMount: {
+          scale: {
+            toValue: 1,
+            duration: 250,
+          },
+          translate: {
+            Y: {
+              toValue: 0,
+              duration: 250,
+            },
+            X: {
+              toValue: 0,
+              duration: 250,
+            },
+          },
+          opacity: {
+            background: {
+              toValue: 1,
+              duration: 100,
+            },
+            container: {
+              toValue: 1,
+              duration: 50,
+            },
+          },
+        },
+        onUnmount: {
+          scale: {
+            toValue: 0.32,
+            duration: 250,
+          },
+          translate: {
+            Y: {
+              toValue: 120,
+              duration: 250,
+            },
+            X: {
+              toValue: 32,
+              duration: 250,
+            },
+          },
+          opacity: {
+            background: {
+              toValue: 0,
+              duration: 150,
+            },
+            container: {
+              toValue: 0,
+              duration: 500,
+            },
+          },
+        },
+      },
+      focusControl: {
+        initial: {
+          scaleValue: 0.38,
+          translateYValue: 62,
+          translateXValue: 60,
+          backgroundOpacityValue: 0,
+          containerOpacityValue: 0,
+        },
+        onMount: {
+          scale: {
+            toValue: 1,
+            duration: 250,
+          },
+          translate: {
+            Y: {
+              toValue: 0,
+              duration: 250,
+            },
+            X: {
+              toValue: 0,
+              duration: 250,
+            },
+          },
+          opacity: {
+            background: {
+              toValue: 1,
+              duration: 100,
+            },
+            container: {
+              toValue: 1,
+              duration: 50,
+            },
+          },
+        },
+        onUnmount: {
+          scale: {
+            toValue: 0.32,
+            duration: 250,
+          },
+          translate: {
+            Y: {
+              toValue: 120,
+              duration: 250,
+            },
+            X: {
+              toValue: 32,
+              duration: 250,
+            },
+          },
+          opacity: {
+            background: {
+              toValue: 0,
+              duration: 150,
+            },
+            container: {
+              toValue: 0,
+              duration: 500,
+            },
+          },
+        },
+      },
     },
   };
 }

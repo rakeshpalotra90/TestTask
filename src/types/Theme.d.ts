@@ -323,6 +323,128 @@ export interface ITheme {
           };
         };
       };
+      brightNessControl: {
+        initial: {
+          scaleValue: number;
+          translateYValue: number;
+          translateXValue: number;
+          backgroundOpacityValue: number;
+          containerOpacityValue: number;
+        };
+        onMount: {
+          scale: {
+            toValue: number;
+            duration: number;
+          };
+          translate: {
+            Y: {
+              toValue: number;
+              duration: number;
+            };
+            X: {
+              toValue: number;
+              duration: number;
+            };
+          };
+          opacity: {
+            background: {
+              toValue: number;
+              duration: number;
+            };
+            container: {
+              toValue: number;
+              duration: number;
+            };
+          };
+        };
+        onUnmount: {
+          scale: {
+            toValue: number;
+            duration: number;
+          };
+          translate: {
+            Y: {
+              toValue: number;
+              duration: number;
+            };
+            X: {
+              toValue: number;
+              duration: number;
+            };
+          };
+          opacity: {
+            background: {
+              toValue: number;
+              duration: number;
+            };
+            container: {
+              toValue: number;
+              duration: number;
+            };
+          };
+        };
+      };
+      focusControl: {
+        initial: {
+          scaleValue: number;
+          translateYValue: number;
+          translateXValue: number;
+          backgroundOpacityValue: number;
+          containerOpacityValue: number;
+        };
+        onMount: {
+          scale: {
+            toValue: number;
+            duration: number;
+          };
+          translate: {
+            Y: {
+              toValue: number;
+              duration: number;
+            };
+            X: {
+              toValue: number;
+              duration: number;
+            };
+          };
+          opacity: {
+            background: {
+              toValue: number;
+              duration: number;
+            };
+            container: {
+              toValue: number;
+              duration: number;
+            };
+          };
+        };
+        onUnmount: {
+          scale: {
+            toValue: number;
+            duration: number;
+          };
+          translate: {
+            Y: {
+              toValue: number;
+              duration: number;
+            };
+            X: {
+              toValue: number;
+              duration: number;
+            };
+          };
+          opacity: {
+            background: {
+              toValue: number;
+              duration: number;
+            };
+            container: {
+              toValue: number;
+              duration: number;
+            };
+          };
+        };
+      };
     };
   };
 }

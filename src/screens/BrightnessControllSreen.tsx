@@ -6,7 +6,6 @@ import {
   TouchableWithoutFeedback,
   Animated,
 } from 'react-native';
-import {ScreenProps} from '../types/Application.d';
 import Theme from '../Theme';
 import SwipeSlider from 'react-native-swipe-slider';
 import ButtonRounded from '../components/Buttons/ButtonRounded';
@@ -14,7 +13,7 @@ import ButtonRounded from '../components/Buttons/ButtonRounded';
 /**
  * BrightnessControlScreen - Screen is used to display by moving finger from brightness blockshouldchangesfullness heigh.
  **/
-export default class BrightnessControlScreen extends React.Component<ScreenProps> {
+export default class BrightnessControlScreen extends React.Component<any> {
   animatedScaleValue: Animated.Value | Animated.ValueXY;
   animatedTranslateYValue: Animated.Value | Animated.ValueXY;
   animatedTranslateXValue: Animated.Value | Animated.ValueXY;
@@ -24,19 +23,19 @@ export default class BrightnessControlScreen extends React.Component<ScreenProps
   constructor(props: any) {
     super(props);
     this.animatedScaleValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.scaleValue,
+      Theme.Animations.screens.brightNessControl.initial.scaleValue,
     );
     this.animatedTranslateYValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.translateYValue,
+      Theme.Animations.screens.brightNessControl.initial.translateYValue,
     );
     this.animatedTranslateXValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.translateXValue,
+      Theme.Animations.screens.brightNessControl.initial.translateXValue,
     );
     this.animatedBackgroundOpacityValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.backgroundOpacityValue,
+      Theme.Animations.screens.brightNessControl.initial.backgroundOpacityValue,
     );
     this.animatedContainerOpacityValue = new Animated.Value(
-      Theme.Animations.screens.musicControl.initial.containerOpacityValue,
+      Theme.Animations.screens.brightNessControl.initial.containerOpacityValue,
     );
   }
 
@@ -48,38 +47,44 @@ export default class BrightnessControlScreen extends React.Component<ScreenProps
     Animated.parallel([
       Animated.timing(this.animatedContainerOpacityValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onMount.opacity.container
+          Theme.Animations.screens.brightNessControl.onMount.opacity.container
             .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onMount.opacity.container
+          Theme.Animations.screens.brightNessControl.onMount.opacity.container
             .duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedTranslateYValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onMount.translate.Y.toValue,
+          Theme.Animations.screens.brightNessControl.onMount.translate.Y
+            .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onMount.translate.Y.duration,
+          Theme.Animations.screens.brightNessControl.onMount.translate.Y
+            .duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedTranslateXValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onMount.translate.X.toValue,
+          Theme.Animations.screens.brightNessControl.onMount.translate.X
+            .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onMount.translate.X.duration,
+          Theme.Animations.screens.brightNessControl.onMount.translate.X
+            .duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedScaleValue, {
-        toValue: Theme.Animations.screens.musicControl.onMount.scale.toValue,
-        duration: Theme.Animations.screens.musicControl.onMount.scale.duration,
+        toValue:
+          Theme.Animations.screens.brightNessControl.onMount.scale.toValue,
+        duration:
+          Theme.Animations.screens.brightNessControl.onMount.scale.duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedBackgroundOpacityValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onMount.opacity.background
+          Theme.Animations.screens.brightNessControl.onMount.opacity.background
             .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onMount.opacity.background
+          Theme.Animations.screens.brightNessControl.onMount.opacity.background
             .duration,
         useNativeDriver: true,
       }),
@@ -88,48 +93,44 @@ export default class BrightnessControlScreen extends React.Component<ScreenProps
 
   //onDismiss - dismiss overlay by componentId
   onDismiss = () => {
-    const {Application, componentId} = this.props;
+    this.props.onDismiss();
     Animated.parallel([
       Animated.timing(this.animatedContainerOpacityValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.container
+          Theme.Animations.screens.brightNessControl.onUnmount.opacity.container
             .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.container
+          Theme.Animations.screens.brightNessControl.onUnmount.opacity.container
             .duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedTranslateYValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onUnmount.translate.Y.toValue,
+          Theme.Animations.screens.brightNessControl.onUnmount.translate.Y
+            .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onUnmount.translate.Y.duration,
+          Theme.Animations.screens.brightNessControl.onUnmount.translate.Y
+            .duration,
         useNativeDriver: true,
       }),
       Animated.timing(this.animatedTranslateXValue, {
         toValue:
-          Theme.Animations.screens.musicControl.onUnmount.translate.X.toValue,
-        duration:
-          Theme.Animations.screens.musicControl.onUnmount.translate.X.duration,
-        useNativeDriver: true,
-      }),
-      Animated.timing(this.animatedScaleValue, {
-        toValue: Theme.Animations.screens.musicControl.onUnmount.scale.toValue,
-        duration:
-          Theme.Animations.screens.musicControl.onUnmount.scale.duration,
-        useNativeDriver: true,
-      }),
-      Animated.timing(this.animatedBackgroundOpacityValue, {
-        toValue:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.background
+          Theme.Animations.screens.brightNessControl.onUnmount.translate.X
             .toValue,
         duration:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.background
+          Theme.Animations.screens.brightNessControl.onUnmount.translate.X
             .duration,
         useNativeDriver: true,
       }),
+      Animated.timing(this.animatedScaleValue, {
+        toValue:
+          Theme.Animations.screens.brightNessControl.onUnmount.scale.toValue,
+        duration:
+          Theme.Animations.screens.brightNessControl.onUnmount.scale.duration,
+        useNativeDriver: true,
+      }),
     ]).start(() => {
-      Application.navigateDismissOverlay(componentId);
+      this.props.onCloseModal();
     });
   };
 
@@ -152,11 +153,6 @@ export default class BrightnessControlScreen extends React.Component<ScreenProps
     return (
       <TouchableWithoutFeedback onPress={this.onDismiss}>
         <View style={styles.wrapper}>
-          <Animated.Image
-            style={styles.backgroundImage}
-            blurRadius={10}
-            source={Theme.Images.backgroundImage}
-          />
           <TouchableWithoutFeedback>
             <Animated.View style={[styles.container, animatedStyle]}>
               <View style={styles.swipeSliderBody}>

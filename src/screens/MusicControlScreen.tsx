@@ -7,7 +7,6 @@ import {
   Animated,
   Image,
 } from 'react-native';
-import {ScreenProps} from '../types/Application.d';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Row from '../components/Wrappers/Row';
 import Theme from '../Theme';
@@ -15,7 +14,7 @@ import Theme from '../Theme';
 /**
  * MusicControlScreen - Screen is used to display by pressing music play and pause, volume hight and low, Move next and previous music collection
  **/
-export default class MusicControlScreen extends React.Component<ScreenProps> {
+export default class MusicControlScreen extends React.Component<any> {
   animatedScaleValue: Animated.Value | Animated.ValueXY;
   animatedTranslateYValue: Animated.Value | Animated.ValueXY;
   animatedTranslateXValue: Animated.Value | Animated.ValueXY;
@@ -71,21 +70,12 @@ export default class MusicControlScreen extends React.Component<ScreenProps> {
         duration: Theme.Animations.screens.musicControl.onMount.scale.duration,
         useNativeDriver: true,
       }),
-      Animated.timing(this.animatedBackgroundOpacityValue, {
-        toValue:
-          Theme.Animations.screens.musicControl.onMount.opacity.background
-            .toValue,
-        duration:
-          Theme.Animations.screens.musicControl.onMount.opacity.background
-            .duration,
-        useNativeDriver: true,
-      }),
     ]).start();
   }
 
   //onDismiss - dismiss overlay by componentId
   onDismiss = () => {
-    const {Application, componentId} = this.props;
+    this.props.onDismiss();
     Animated.parallel([
       Animated.timing(this.animatedContainerOpacityValue, {
         toValue:
@@ -116,17 +106,8 @@ export default class MusicControlScreen extends React.Component<ScreenProps> {
           Theme.Animations.screens.musicControl.onUnmount.scale.duration,
         useNativeDriver: true,
       }),
-      Animated.timing(this.animatedBackgroundOpacityValue, {
-        toValue:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.background
-            .toValue,
-        duration:
-          Theme.Animations.screens.musicControl.onUnmount.opacity.background
-            .duration,
-        useNativeDriver: true,
-      }),
     ]).start(() => {
-      Application.navigateDismissOverlay(componentId);
+      this.props.onCloseModal();
     });
   };
 
@@ -149,11 +130,6 @@ export default class MusicControlScreen extends React.Component<ScreenProps> {
     return (
       <TouchableWithoutFeedback onPress={this.onDismiss}>
         <View style={styles.wrapper}>
-          <Animated.Image
-            style={styles.backgroundImage}
-            blurRadius={10}
-            source={Theme.Images.backgroundImage}
-          />
           <TouchableWithoutFeedback>
             <Animated.View style={[styles.container, animatedStyle]}>
               <Row>

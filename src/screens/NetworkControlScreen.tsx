@@ -5,7 +5,6 @@ import {
   TouchableWithoutFeedback,
   Animated,
 } from 'react-native';
-import {ScreenProps} from '../types/Application.d';
 import ButtonRoundedWithCaption from '../components/Buttons/ButtonRoundedWithCaption';
 import Row from '../components/Wrappers/Row';
 import Theme from '../Theme';
@@ -13,7 +12,7 @@ import Theme from '../Theme';
 /**
  * NetworkControlScreen - Screen is used to display variour options plane Mode, Mobile network, Wi-Fi, Bluetooth, AirDrop, Hotspot
  **/
-export default class NetworkControlScreen extends React.Component<ScreenProps> {
+export default class NetworkControlScreen extends React.Component<any> {
   animatedScaleValue: Animated.Value | Animated.ValueXY;
   animatedTranslateYValue: Animated.Value | Animated.ValueXY;
   animatedTranslateXValue: Animated.Value | Animated.ValueXY;
@@ -84,7 +83,7 @@ export default class NetworkControlScreen extends React.Component<ScreenProps> {
 
   //onDismiss - dismiss overlay by componentId
   onDismiss = () => {
-    const {Application, componentId} = this.props;
+    this.props.onDismiss();
     Animated.parallel([
       Animated.timing(this.animatedContainerOpacityValue, {
         toValue:
@@ -128,7 +127,7 @@ export default class NetworkControlScreen extends React.Component<ScreenProps> {
         useNativeDriver: true,
       }),
     ]).start(() => {
-      Application.navigateDismissOverlay(componentId);
+      this.props.onCloseModal();
     });
   };
 
@@ -151,12 +150,7 @@ export default class NetworkControlScreen extends React.Component<ScreenProps> {
 
     return (
       <TouchableWithoutFeedback onPress={this.onDismiss}>
-        <View style={styles.wrapper}>
-          <Animated.Image
-            style={styles.backgroundImage}
-            blurRadius={10}
-            source={Theme.Images.backgroundImage}
-          />
+        <View style={[styles.wrapper]}>
           <TouchableWithoutFeedback>
             <Animated.View style={[styles.container, animatedStyle]}>
               <Row>
